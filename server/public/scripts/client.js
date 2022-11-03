@@ -18,6 +18,7 @@ function handleReady() {
 function newRound() {
   round = 0;
   $('#currentRound').empty();
+  $('#winner').empty();
   $('#currentRound').append(`
       <h2> Round: ${round} </h2>
     `);
@@ -103,6 +104,8 @@ function onSubmit() {
   }).then(function (response) {
     //after POST, add guesses to a "history of previous guesses"
     round++;
+    $('#playerOne-btn').val('');
+    $('#playerTwo-btn').val('');
     getGuesses();
   }).catch(function (error) {
     alert('onSubmit Failed', error);
@@ -137,7 +140,7 @@ function render(guesses) {
     // then display restart button
     if (guess.pOneCompare === 'Correct!' || guess.pTwoCompare === 'Correct!') {
       // Display YOU WON!
-      console.log('you won!');
+      $('#winner').text('YOU WON!');
       // Make restart button visible by adding class .makeButtonVisible
       $('#restart-btn').addClass('makeButtonVisible');
       // restart button selects a new random number using POST.

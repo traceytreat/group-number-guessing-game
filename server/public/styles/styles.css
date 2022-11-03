@@ -18,3 +18,32 @@ table {
 	display: inline;
 }
 
+#winner {
+	font-size: 40px;
+	color: green;
+	font-weight: bold;
+	animation: flashingText 3s infinite;
+}
+
+
+@keyframes flashingText {
+	0% {
+		color: green;
+	}
+
+	25% {
+		color: white;
+	}
+
+	50% {
+		color: green;
+	}
+
+	75% {
+		color: white;
+	}
+
+	100% {
+		color: green;
+	}
+}
