@@ -3,7 +3,7 @@
 }
 
 .makeButtonVisible {
-	display: inline;
+	display: inline !important;
 }
 
 tr, td {

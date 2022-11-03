@@ -12,7 +12,7 @@ function handleReady() {
 
   getGuesses();
   // set the number to be guessed
-  numToGuess = generateRandom();
+  numToGuess = 0;
 }
 
 function getGuesses() {
@@ -46,9 +46,9 @@ function generateRandom() {
     url: '/random',
 
   }).then(function (response) {
-    numToGuess = response;
+    numToGuess = response.num.num;
   }).catch(function (error) {
-    alert('request failure', error);
+    alert('Generate random failure', error);
   });
 
   //numToGuess = Math.floor(Math.random() * 25) + 1;
@@ -100,7 +100,8 @@ function render(guesses) {
     `);
 
   for (let guess of guesses) {
-    console.log('Current guess', guess);
+    console.log('The number to guess', guess.num.num);
+    console.log('Current guess', guess.num);
     $('#contentForOne').append(`
       <tr>  
         <td>Player One's Guess: ${guess.pOneGuess}</td>
@@ -115,9 +116,9 @@ function render(guesses) {
     `);
     // if guess.pOneCompare === "Correct!" || guess.pTwoCompare === "Correct!"
     // then display restart button
-    if (guess.pOneCompare === "Correct!" || guess.pTwoCompare === "Correct!") {
+    if (guess.pOneCompare === 'Correct!' || guess.pTwoCompare === 'Correct!') {
       // Display YOU WON!
-
+      console.log('you won!');
       // Make restart button visible by adding class .makeButtonVisible
       $('#restart-btn').addClass('makeButtonVisible');
       // restart button selects a new random number using POST.

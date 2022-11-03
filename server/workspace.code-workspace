@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"path": "../../weekend-jquery-salary-calculator"
+		},
+		{
+			"path": "../../jquery-color-swap"
+		},
+		{
+			"path": "../../jquery-data-starter"
+		},
+		{
+			"path": "../../guess-who"
+		},
+		{
+			"path": "../../node-intro"
+		},
+		{
+			"path": "../../big-money-modules"
+		},
+		{
+			"path": "../../shawl-express-intro"
+		},
+		{
+			"path": "../../shawl-the-express-express"
+		},
+		{
+			"path": "../../shawl-express-get"
+		},
+		{
+			"path": "../../get-jazzy-ajax"
+		},
+		{
+			"path": "../../serverSideInventory"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
