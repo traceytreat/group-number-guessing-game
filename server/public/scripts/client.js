@@ -19,9 +19,15 @@ function newRound() {
   round = 0;
   $('#currentRound').empty();
   $('#winner').empty();
-  $('#currentRound').append(`
+  if (round === 0){
+    $('#currentRound').append(`
+      <h2>Make a Guess!</h2>
+    `);
+  } else {
+    $('#currentRound').append(`
       <h2> Round: ${round} </h2>
     `);
+  }
   $.ajax({
     method: 'POST',
     url: '/random',
@@ -117,10 +123,15 @@ function render(guesses) {
   //Updating the number of times the guesses were made
   console.log('this is RESPONSE', guesses);
   $('#currentRound').empty();
-  $('#currentRound').append(`
+  if (round === 0){
+    $('#currentRound').append(`
+      <h2>Make a Guess!</h2>
+    `);
+  } else {
+    $('#currentRound').append(`
       <h2> Round: ${round} </h2>
     `);
-
+  }
   for (let guess of guesses) {
     console.log('The number to guess', guess.num.num);
     console.log('Current guess', guess.num);

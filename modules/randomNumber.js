@@ -1,9 +1,10 @@
 
 
 
-//Generating a number from 1 to 25.
-function generateRandomNumber(){
-    return Math.floor(Math.random() * 25) + 1
+//Generating a number from min to max.
+function generateRandomNumber(min, max){
+    
+    return Math.floor(Math.random() * max) + min
 }
 
 

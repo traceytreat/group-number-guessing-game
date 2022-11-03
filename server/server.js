@@ -20,7 +20,9 @@ app.use(express.static('server/public'));
 // pTwoCompare: (String, comparison of p2's guess to answer)
 let guesses = [];
 let randomNumber = {
-  num: getRandomNumber(),
+  num: getRandomNumber(1,25),
+  min: 1,
+  max: 25
 };
 
 // GET & POST Routes go here
@@ -32,13 +34,12 @@ app.get('/guesses', (req, res) => {
 
 //this will be the post or get for the new number (restarting game).
 app.post('/random', (req, res) => {
-  console.log('in app.post random');
-  randomNumber.num = getRandomNumber();
+  randomNumber.num = getRandomNumber(1, 25);
   res.sendStatus(201);
 });
 
 app.get('/random', (req, res) => {
-  console.log('In Get /random');
+
   res.send(randomNumber);
 });
 
@@ -47,6 +48,8 @@ app.get('/random', (req, res) => {
 // Number comparison happens here
 app.post('/guesses', (req, res) => {
   console.log('In server app.post');
+
+
   //guess is an object
   let guess = req.body.guess;
 

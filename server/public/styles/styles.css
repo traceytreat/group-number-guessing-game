@@ -1,3 +1,25 @@
+body {
+	text-align: center;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-image: linear-gradient(to right, white, lightblue);
+}
+
+input {
+	font-size: 20px;
+	width: 250px;
+	height: 35px;
+}
+h1 {
+	text-shadow: 5px 5px 2px white;
+	font-size: 50px;
+}
+#submit-btn {
+	font-size: 20px;
+	width: 100px;
+	height: 40px;
+
+}
+
 #restart-btn {
 	display: none;
 }
@@ -8,6 +30,8 @@
 
 tr, td {
 	border: 2px solid black;
+	background-color: white;
+	padding: 10px;
 }
 
 table {
@@ -19,7 +43,7 @@ table {
 }
 
 #winner {
-	font-size: 40px;
+	font-size: 75px;
 	color: green;
 	font-weight: bold;
 	animation: flashingText 3s infinite;
@@ -47,3 +71,5 @@ table {
 		color: green;
 	}
 }
+
+
