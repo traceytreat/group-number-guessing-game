@@ -8,11 +8,30 @@ function handleReady() {
   console.log("jquery is loaded!")
 
   $('#submit-btn').on('click', onSubmit);
-  $('#restart-btn').on('click', generateRandom);
+  $('#restart-btn').on('click', newRound);
 
   getGuesses();
   // set the number to be guessed
   numToGuess = 0;
+}
+
+function newRound() {
+  round = 0;
+  $('#currentRound').empty();
+  $('#currentRound').append(`
+      <h2> Round: ${round} </h2>
+    `);
+  $.ajax({
+    method: 'POST',
+    url: '/random',
+    
+  }).then(function (response) {
+    generateRandom();
+  }).catch(function (error) {
+    alert('newRound Failed', error);
+  });
+
+  
 }
 
 function getGuesses() {
