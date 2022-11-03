@@ -48,15 +48,13 @@ table {
 	font-weight: bold;
 	animation: flashingText 3s infinite;
 }
-
-
 @keyframes flashingText {
 	0% {
 		color: green;
 	}
 
 	25% {
-		color: white;
+		color: transparent;
 	}
 
 	50% {
@@ -64,7 +62,7 @@ table {
 	}
 
 	75% {
-		color: white;
+		color: transparent;
 	}
 
 	100% {

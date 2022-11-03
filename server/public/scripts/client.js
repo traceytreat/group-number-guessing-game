@@ -22,6 +22,7 @@ function newRound() {
   if (round === 0){
     $('#currentRound').append(`
       <h2>Make a Guess!</h2>
+      <img width="200" src = "https://i.pinimg.com/originals/ce/4c/9d/ce4c9d67fb6174aa268bf7e71c12b8ff.gif" />
     `);
   } else {
     $('#currentRound').append(`
@@ -126,6 +127,7 @@ function render(guesses) {
   if (round === 0){
     $('#currentRound').append(`
       <h2>Make a Guess!</h2>
+      <img width="200" src = "https://i.pinimg.com/originals/ce/4c/9d/ce4c9d67fb6174aa268bf7e71c12b8ff.gif" />
     `);
   } else {
     $('#currentRound').append(`
