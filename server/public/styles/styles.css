@@ -1,0 +1,20 @@
+#restart-btn {
+	display: none;
+}
+
+.makeButtonVisible {
+	display: inline;
+}
+
+tr, td {
+	border: 2px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+#contentForOne,
+#contentForTwo {
+	display: inline;
+}
+

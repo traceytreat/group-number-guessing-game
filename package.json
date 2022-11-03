@@ -1,7 +1,7 @@
 {
   "name": "group-number-guessing-game-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this challenge, you will be creating a number guessing game! You'll have plenty of time to work on this as a group. Start by spending 5 minutes reading through the requirements individually. After reading through the requirements, come together as a group and talk about what you would like to get out of the project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/PrimeAcademy/group-number-guessing-game-starter#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "express": "^4.18.2",
     "jquery": "^3.3.1"
   }
 }
