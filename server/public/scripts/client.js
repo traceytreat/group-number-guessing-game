@@ -87,36 +87,41 @@ function onSubmit() {
   // and that calls onSubmit()
 
   // Use ajax and POST to send guesses to server.
-  $.ajax({
-    method: 'POST',
-    url: '/guesses',
-
-    data: {
-      guess: {
-        // Each guess should be an object with values:
-        // num: (The number to guess)
-        num: numToGuess,
-        // pOneGuess: (Number, player one guess)
-        pOneGuess: Number($('#playerOne-btn').val()),
-        // pOneCompare: (String, comparison of p1's guess to answer)
-        // this is done in the server so leave it a blank string for now
-        pOneCompare: '',
-        // pTwoGuess: (Number, player two guess)
-        pTwoGuess: Number($('#playerTwo-btn').val()),
-        // pTwoCompare: (String, comparison of p2's guess to answer)
-        // this is done in the server so leave it a blank string for now
-        pTwoCompare: '',
+  if (Number($('#playerOne-btn').val()) === Number($('#playerTwo-btn').val())){
+    alert('The players must submit two different values!');
+  } else {
+    $.ajax({
+      method: 'POST',
+      url: '/guesses',
+  
+      data: {
+        guess: {
+          // Each guess should be an object with values:
+          // num: (The number to guess)
+          num: numToGuess,
+          // pOneGuess: (Number, player one guess)
+          pOneGuess: Number($('#playerOne-btn').val()),
+          // pOneCompare: (String, comparison of p1's guess to answer)
+          // this is done in the server so leave it a blank string for now
+          pOneCompare: '',
+          // pTwoGuess: (Number, player two guess)
+          pTwoGuess: Number($('#playerTwo-btn').val()),
+          // pTwoCompare: (String, comparison of p2's guess to answer)
+          // this is done in the server so leave it a blank string for now
+          pTwoCompare: '',
+        }
       }
-    }
-  }).then(function (response) {
-    //after POST, add guesses to a "history of previous guesses"
-    round++;
-    $('#playerOne-btn').val('');
-    $('#playerTwo-btn').val('');
-    getGuesses();
-  }).catch(function (error) {
-    alert('onSubmit Failed', error);
-  });
+    }).then(function (response) {
+      //after POST, add guesses to a "history of previous guesses"
+      round++;
+      $('#playerOne-btn').val('');
+      $('#playerTwo-btn').val('');
+      getGuesses();
+    }).catch(function (error) {
+      alert('onSubmit Failed', error);
+    });
+  }
+  
 }
 
 function render(guesses) {
