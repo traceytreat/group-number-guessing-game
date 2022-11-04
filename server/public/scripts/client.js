@@ -8,7 +8,7 @@ function handleReady() {
   console.log("jquery is loaded!")
   // executing the function onSubmit when user clicks on the submit button.
   $('#submit-btn').on('click', onSubmit);
-  //executing the function onSubmit when the user hits restart after the winner has been declared. 
+  //executing the function newRound when the user hits restart after the winner has been declared. 
   $('#restart-btn').on('click', newRound);
 
   getGuesses();
@@ -44,6 +44,7 @@ function newRound() {
   
 }
 
+// GETS the number that was set to the random number for players to guess. 
 function getGuesses() {
   $.ajax({
     method: 'GET',
