@@ -28,7 +28,6 @@ let randomNumber = {
 // GET & POST Routes go here
 // GET route for /guesses
 app.get('/guesses', (req, res) => {
-  console.log('The guesses array', guesses);
   res.send(guesses);
 });
 
@@ -39,7 +38,6 @@ app.post('/random', (req, res) => {
 });
 
 app.get('/random', (req, res) => {
-
   res.send(randomNumber);
 });
 
@@ -47,9 +45,7 @@ app.get('/random', (req, res) => {
 // POST route for guesses
 // Number comparison happens here
 app.post('/guesses', (req, res) => {
-  console.log('In server app.post');
-
-
+  
   //guess is an object
   let guess = req.body.guess;
 

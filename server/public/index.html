@@ -15,22 +15,20 @@
 <body>
   <h1>Random Number Guessing Game!</h1>
 
-  <header>
-    <button id="restart-btn">Restart</button>
-    <input id="playerOne-btn" type="number" placeholder="Player 1 Guess" />
-    <input id="playerTwo-btn" type="number" placeholder="Player 2 Guess" />
-    <button id="submit-btn">Enter</button>
-  </header>
-
+  <!--This is where the players input their guesses, submit, and restart-->
+  <button id="restart-btn">Restart</button>
+  <input id="playerOne-Input" type="number" placeholder="Player 1 Guess" />
+  <input id="playerTwo-Input" type="number" placeholder="Player 2 Guess" />
+  <button id="submit-btn">Enter</button>
+  
+  
+  <!--This div is used to display the Winner animation used when a player guesses the number correctly!-->
   <div id="winner"></div>
+  
+  <!--This div displays the current round and history of guesses-->
   <div id="currentRound"></div>
-
-    <table id="contentForOne"></table>
-
-
-    <table id="contentForTwo"></table>
-
-  <div id="correctAnswer"></div>
+  <table id="contentForOne"></table>
+  <table id="contentForTwo"></table>
 
 </body>
 

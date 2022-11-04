@@ -6,16 +6,18 @@ let round = 0;
 
 function handleReady() {
   console.log("jquery is loaded!")
-
+  // executing the function onSubmit when user clicks on the submit button.
   $('#submit-btn').on('click', onSubmit);
+  //executing the function onSubmit when the user hits restart after the winner has been declared. 
   $('#restart-btn').on('click', newRound);
 
   getGuesses();
-  // set the number to be guessed
+  // Set the number to be guessed.
   numToGuess = 0;
 }
 
 function newRound() {
+  // Resets the game with a new random number.
   round = 0;
   $('#currentRound').empty();
   $('#winner').empty();
@@ -48,7 +50,8 @@ function getGuesses() {
     url: '/guesses'
 
   }).then(function (response) {
-    render(response); // guesses
+    // guesses
+    render(response);
   }).catch(function (error) {
     alert('request failure', error);
   });
@@ -78,8 +81,6 @@ function generateRandom() {
     alert('Generate random failure', error);
   });
 
-  //numToGuess = Math.floor(Math.random() * 25) + 1;
-
 }
 
 function onSubmit() {
@@ -87,7 +88,7 @@ function onSubmit() {
   // and that calls onSubmit()
 
   // Use ajax and POST to send guesses to server.
-  if (Number($('#playerOne-btn').val()) === Number($('#playerTwo-btn').val())){
+  if (Number($('#playerOne-Input').val()) === Number($('#playerTwo-Input').val())){
     alert('The players must submit two different values!');
   } else {
     $.ajax({
@@ -100,22 +101,22 @@ function onSubmit() {
           // num: (The number to guess)
           num: numToGuess,
           // pOneGuess: (Number, player one guess)
-          pOneGuess: Number($('#playerOne-btn').val()),
+          pOneGuess: Number($('#playerOne-Input').val()),
           // pOneCompare: (String, comparison of p1's guess to answer)
           // this is done in the server so leave it a blank string for now
           pOneCompare: '',
           // pTwoGuess: (Number, player two guess)
-          pTwoGuess: Number($('#playerTwo-btn').val()),
+          pTwoGuess: Number($('#playerTwo-Input').val()),
           // pTwoCompare: (String, comparison of p2's guess to answer)
           // this is done in the server so leave it a blank string for now
           pTwoCompare: '',
         }
       }
     }).then(function (response) {
-      //after POST, add guesses to a "history of previous guesses"
+      // after POST, add guesses to a "history of previous guesses"
       round++;
-      $('#playerOne-btn').val('');
-      $('#playerTwo-btn').val('');
+      $('#playerOne-Input').val('');
+      $('#playerTwo-Input').val('');
       getGuesses();
     }).catch(function (error) {
       alert('onSubmit Failed', error);
@@ -125,9 +126,8 @@ function onSubmit() {
 }
 
 function render(guesses) {
-  //Adding the guesses made from each player to the DOM. 
-  //Updating the number of times the guesses were made
-  console.log('this is RESPONSE', guesses);
+  // Adding the guesses made from each player to the DOM. 
+  // Updating the number of times the guesses were made
   $('#currentRound').empty();
   if (round === 0){
     $('#currentRound').append(`
@@ -140,8 +140,6 @@ function render(guesses) {
     `);
   }
   for (let guess of guesses) {
-    console.log('The number to guess', guess.num.num);
-    console.log('Current guess', guess.num);
     $('#contentForOne').append(`
       <tr>  
         <td>Player One's Guess: ${guess.pOneGuess}</td>
